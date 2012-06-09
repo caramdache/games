@@ -4,11 +4,17 @@ class NSManagedObject
   end
 
   def self.objects
+    # Use if you do not want any section in your table view
     @objects ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSortKey:@sortKey, ascending:false, inManagedObjectContext:Store.shared.context)
+  end
+
+  def self.controller
+    # Use if you require sections in your table view
+    @controller ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSectioKey:@sectionKey, withSortKey:@sortKey, ascending:false, inManagedObjectContext:Store.shared.context)
   end
   
   def self.reset
-    @objects = nil
+    @objects = @controller = nil
   end
 
   def self.add

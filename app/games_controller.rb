@@ -16,33 +16,22 @@ class GamesController < UITableViewController
 
   def addGame
     Game.add do |game|
-      game.timestamp = NSDate.date
+      game.timestamp, game.year = NSDate.date, NSDate.date.year
       game.name = "game#{rand(100)}"
     end
     view.reloadData
   end
   
-  def editGame(game)
-  end
-  
-  def deleteEditing
-    view.reloadData
-  end
-    
-  def cancelEditing
-    view.reloadData
-  end
-  
-  def doneEditing
-    view.reloadData
-  end
-  
   def numberOfSectionsInTableView(tableView)
-    1
+    Game.controller.sections.size
+  end
+
+  def tableView(tableView, titleForHeaderInSection:section)
+    Game.controller.sections[section].name
   end
   
   def tableView(tableView, numberOfRowsInSection:section)
-    Game.objects.size
+    Game.controller.sections[section].numberOfObjects
   end
 
   CellID = 'CellIdentifier'
@@ -51,20 +40,25 @@ class GamesController < UITableViewController
       c.accessoryType = UITableViewCellAccessoryDisclosureIndicator
     end
     
-    cell.textLabel.text = Game.objects[indexPath.row].name
+    cell.textLabel.text = Game.controller.objectAtIndexPath(indexPath).name
     cell
   end
 
   def tableView(tableView, commitEditingStyle:editingStyle, forRowAtIndexPath:indexPath)
-    Game.objects[indexPath.row].remove
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationFade)
+    Game.controller.objectAtIndexPath(indexPath).remove
+    tableView.updates do
+      if tableView.numberOfRowsInSection(indexPath.section) == 1
+        tableView.deleteSections(NSIndexSet.indexSetWithIndex(indexPath.section), withRowAnimation:UITableViewRowAnimationFade)
+      end
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationFade)
+    end
   end
   
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated:true)
     
     @gameController ||= GameController.alloc.initWithStyle(UITableViewStylePlain)
-    @gameController.game = Game.objects[indexPath.row]
+    @gameController.game = Game.controller.objectAtIndexPath(indexPath)
     navigationController.pushViewController(@gameController, animated:true)
   end
 end

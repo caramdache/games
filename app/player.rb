@@ -1,5 +1,6 @@
 class Player < NSManagedObject
   @sortKey ||= 'name'
+  @sectionKey ||= nil
 
   @attributes ||= [
     #name, type, default, optional, transient, indexed

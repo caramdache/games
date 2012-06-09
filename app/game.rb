@@ -1,10 +1,12 @@
 class Game < NSManagedObject
   @sortKey ||= 'timestamp'
+  @sectionKey ||= 'year'
 
   @attributes ||= [
     #name, type, default, optional, transient, indexed
     ['name', NSStringAttributeType, '', false, false, false],
     ['timestamp', NSDateAttributeType, nil, false, false, false],
+    ['year', NSInteger16AttributeType, 0, false, false, false],
   ]
 
   @relationships ||= [
