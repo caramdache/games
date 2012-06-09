@@ -13,7 +13,7 @@ This sample demonstrate how to create CoreData relationships in RubyMotion witho
 Use
 ===
 
-To-many relationships are set as follows:
+To-many relationships are declared as follows:
 - minCount = 0
 - maxCount = NSIntegerMax
 
