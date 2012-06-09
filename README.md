@@ -8,7 +8,7 @@ This sample demonstrate how to create CoreData relationships in RubyMotion witho
 - attributes and relationships are specified declaratively and on a per object basis
 - store.rb is mostly independent from the objects
 - some CoreData helper/extension classes are provided in lib/
-- both table views with and without sections demonstrated provided
+- both table views with and without sections are demonstrated
 
 Use
 ===
