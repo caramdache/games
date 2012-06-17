@@ -32,4 +32,4 @@ RubyMotion does not currently support varargs methods currently (v1.9), so you s
     NSPredicate.predicateWithFormat('player = %@', argumentArray:[player])
 instead of:
     NSPredicate.predicateWithFormat('player = %@', player)
-This bug will likely be fixed soon.
+This is a known bug.

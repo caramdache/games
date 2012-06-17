@@ -1,5 +1,5 @@
 class GameController < UITableViewController
-  attr_accessor :game
+  attr_accessor :game, :popoverViewController
 
   def viewDidLoad
     view.dataSource = view.delegate = self
@@ -26,6 +26,26 @@ class GameController < UITableViewController
 
   def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
     interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown
+  end
+  
+  def splitViewController(svc, willHideViewController:vc, withBarButtonItem:barButtonItem, forPopoverController:pc)
+    barButtonItem.title = 'Games'
+    self.navigationItem.setLeftBarButtonItem(barButtonItem)
+    self.popoverViewController = pc
+  end
+  
+  def splitViewController(svc, willShowViewController:avc, invalidatingBarButtonItem:barButtonItem) 
+    self.navigationItem.setLeftBarButtonItems([], animated:false)
+    self.popoverViewController = nil
+  end
+  
+  def openGame(game)
+    Player.reset
+    
+    self.game = game
+    self.title = game.name
+    self.tableView.reloadData
+    self.popoverViewController.dismissPopoverAnimated(true) unless self.popoverViewController == nil
   end
 
   def addPlayer
@@ -71,6 +91,8 @@ class GameController < UITableViewController
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
+    return 0 if game == nil
+    
     game.players.count
   end
 

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/games_controller.rb</string>
+	<string>README.md</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -14,7 +14,9 @@
 			<key>filename</key>
 			<string>README.md</string>
 			<key>lastUsed</key>
-			<date>2012-06-09T15:33:11Z</date>
+			<date>2012-06-09T15:48:30Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -40,9 +42,7 @@
 			<key>filename</key>
 			<string>app/games_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-06-09T15:37:07Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2012-06-09T15:48:30Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>

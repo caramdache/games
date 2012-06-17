@@ -1,4 +1,6 @@
 class GamesController < UITableViewController
+  attr_accessor :delegate
+
   def viewDidLoad
     view.dataSource = view.delegate = self
   end
@@ -8,6 +10,8 @@ class GamesController < UITableViewController
     
     navigationItem.leftBarButtonItem = editButtonItem
     navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target:self, action:'addGame')
+
+  	self.contentSizeForViewInPopover = CGSizeMake(310.0, view.rowHeight*10)
    end
   
   def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
@@ -37,7 +41,7 @@ class GamesController < UITableViewController
   CellID = 'CellIdentifier'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = tableView.dequeueReusableCellWithIdentifier(CellID) || UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CellID).tap do |c|
-      c.accessoryType = UITableViewCellAccessoryDisclosureIndicator
+      c.accessoryType = UIDevice.ipad? ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator
     end
     
     cell.textLabel.text = Game.controller.objectAtIndexPath(indexPath).name
@@ -56,10 +60,9 @@ class GamesController < UITableViewController
   
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated:true)
-    
-    @gameController ||= GameController.alloc.initWithStyle(UITableViewStylePlain)
-    @gameController.game = Game.controller.objectAtIndexPath(indexPath)
-    navigationController.pushViewController(@gameController, animated:true)
+
+    @delegate.openGame(Game.controller.objectAtIndexPath(indexPath))
+    navigationController.pushViewController(@delegate, animated:true) unless UIDevice.ipad?
   end
 end
 
