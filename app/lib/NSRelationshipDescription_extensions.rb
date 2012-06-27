@@ -1,3 +1,0 @@
-class NSRelationshipDescription
-  attr_accessor :destinationEntityName, :inverseRelationshipName
-end

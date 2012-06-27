@@ -1,5 +1,5 @@
 class Game < NSManagedObject
-  @sortKey = 'timestamp'
+  @sortKeys = ['timestamp']
   @sectionKey = 'year'
 
   @attributes = [

@@ -1,5 +1,5 @@
 class Player < NSManagedObject
-  @sortKey = 'name'
+  @sortKeys = ['name']
   @sectionKey = nil
 
   @attributes = [
