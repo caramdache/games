@@ -3,15 +3,13 @@ class Game < NSManagedObject
   @sectionKey = 'year'
 
   @attributes = [
-    #name, type, default, optional, transient, indexed
-    ['name', NSStringAttributeType, '', false, false, false],
-    ['timestamp', NSDateAttributeType, nil, false, false, false],
-    ['year', NSInteger16AttributeType, 0, false, false, false],
+    {:name => 'name', :type => NSStringAttributeType, :default => '', :optional => false, :transient => false, :indexed => false},
+    {:name => 'timestamp', :type => NSDateAttributeType, :default => nil, :optional => false, :transient => false, :indexed => false},
+    {:name => 'year', :type => NSInteger16AttributeType, :default => 0, :optional => false, :transient => false, :indexed => false},
   ]
 
   @relationships = [
-    #name, destination, inverse, optional, indexed, ordered, min_count, max_count, delete_rule
-    ['players', 'Player', 'game', true, false, true, 0, NSIntegerMax, NSCascadeDeleteRule],
+    {:name => 'players', :destination => 'Player', :inverse => 'game', :json => 'players', :optional => true, :transient => false, :indexed => false, :ordered => true, :min => 0, :max => NSIntegerMax, :del => NSCascadeDeleteRule},
   ]
   
   def addPlayersObject(value)
