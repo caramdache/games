@@ -19,9 +19,15 @@ class GamesController < UITableViewController
   end
 
   def addGame
+    today = ISO8601DateFormatter.alloc.init.stringFromDate(NSDate.date)
+    json = "{
+      \"timestamp\": \"#{ISO8601DateFormatter.alloc.init.stringFromDate(NSDate.date)}\",
+      \"year\": #{NSDate.date.year},
+      \"name\": \"game#{rand(100)}\"
+    }"
+    
     Game.add do |game|
-      game.timestamp, game.year = NSDate.date, NSDate.date.year
-      game.name = "game#{rand(100)}"
+      game.from_json(json)
     end
     view.reloadData
   end

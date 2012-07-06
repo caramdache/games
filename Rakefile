@@ -8,4 +8,6 @@ Motion::Project::App.setup do |app|
   app.device_family = [:iphone, :ipad]
   app.files = Dir.glob(File.join(app.project_dir, 'app/lib/**/*.rb')) |
               Dir.glob(File.join(app.project_dir, 'app/**/*.rb'))
+  
+  app.vendor_project('vendor/ISO-8601-parser', :static)
 end
