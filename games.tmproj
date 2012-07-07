@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/games_controller.rb</string>
+	<string>app/game_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -46,15 +46,15 @@
 			<key>filename</key>
 			<string>app/games_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-07T22:13:22Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2012-07-07T17:35:44Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>app/game_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-07T21:55:57Z</date>
+			<date>2012-07-07T17:35:44Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -167,9 +167,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>16</integer>
 				<key>line</key>
-				<integer>5</integer>
+				<integer>20</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -181,14 +181,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>70</integer>
 				<key>line</key>
-				<integer>41</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>30</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/player.rb</key>
 		<dict>

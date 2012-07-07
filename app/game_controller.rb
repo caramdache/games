@@ -11,12 +11,7 @@ class GameController < UITableViewController
     navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addPlayer')
 
     @playerController ||= PlayerController.alloc.initWithStyle(UITableViewStyleGrouped)
-    @navPlayerController ||= begin
-      navigation = UINavigationController.alloc.initWithRootViewController(@playerController)
-      @playerController.navigationItem.rightBarButtonItem = UIBarButtonItemDone.withTarget(self, action:'doneEditing')
-      @playerController.navigationItem.leftBarButtonItem = UIBarButtonItemCancel.withTarget(self, action:'cancelEditing')
-      navigation
-    end
+    @navPlayerController ||= UINavigationControllerDoneCancel.withRootViewController(@playerController, target:self, done:'doneEditing', cancel:'cancelEditing')
     
     Player.reset
     view.reloadData
