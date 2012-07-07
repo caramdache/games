@@ -1,6 +1,7 @@
 class Game < NSManagedObject
   @sortKeys = ['timestamp']
   @sectionKey = 'year'
+  @searchKey = 'name'
 
   @attributes = [
     {:name => 'name', :type => NSStringAttributeType, :default => '', :optional => false, :transient => false, :indexed => false},

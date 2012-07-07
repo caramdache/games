@@ -16,7 +16,7 @@
 			<key>filename</key>
 			<string>Rakefile</string>
 			<key>lastUsed</key>
-			<date>2012-07-06T15:58:14Z</date>
+			<date>2012-07-06T22:17:36Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -27,6 +27,8 @@
 		<dict>
 			<key>filename</key>
 			<string>app/store.rb</string>
+			<key>lastUsed</key>
+			<date>2012-07-06T21:03:00Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -44,7 +46,7 @@
 			<key>filename</key>
 			<string>app/games_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-06T16:19:08Z</date>
+			<date>2012-07-06T22:17:36Z</date>
 			<key>selected</key>
 			<true/>
 		</dict>
@@ -92,7 +94,7 @@
 					<key>filename</key>
 					<string>app/lib/NSManagedObject_extensions.rb</string>
 					<key>lastUsed</key>
-					<date>2012-07-06T16:19:08Z</date>
+					<date>2012-07-06T21:03:03Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -179,9 +181,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>21</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -192,31 +194,17 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>51</integer>
 				<key>line</key>
-				<integer>24</integer>
+				<integer>21</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>21</integer>
 			</dict>
-		</dict>
-		<key>app/lib/NSManagedObject_extensions.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>20</integer>
-				<key>line</key>
-				<integer>75</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>37</integer>
 		</dict>
 		<key>app/player.rb</key>
 		<dict>
@@ -238,7 +226,6 @@
 		<string>app/game.rb</string>
 		<string>app/player.rb</string>
 		<string>app/games_controller.rb</string>
-		<string>app/lib/NSManagedObject_extensions.rb</string>
 		<string>app/game_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>

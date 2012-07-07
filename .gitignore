@@ -1,3 +1,10 @@
 .repl_history
 build
+build-iPhoneSimulator
+build-iPadSimulator
+*.bridgesupport
+*.a
+.DS_Store
 resources/*.nib
+resources/*.momd
+resources/*.storyboardc

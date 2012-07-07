@@ -1,9 +1,10 @@
 class Player < NSManagedObject
   @sortKeys = ['name']
   @sectionKey = nil
+  @searchKey = 'name'
 
   @attributes = [
-    {:name => 'name'}
+    {:name => 'name', :type => NSStringAttributeType, :default => ''}
   ]
 
   @relationships = [
