@@ -8,15 +8,13 @@ class GameController < UITableViewController
   def viewWillAppear(animated)
     self.title = 'Game'
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target:self, action:'addPlayer')
+    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addPlayer')
 
     @playerController ||= PlayerController.alloc.initWithStyle(UITableViewStyleGrouped)
     @navPlayerController ||= begin
       navigation = UINavigationController.alloc.initWithRootViewController(@playerController)
-      done = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemDone, target:self, action:'doneEditing')
-      @playerController.navigationItem.rightBarButtonItem = done
-      cancel = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemCancel, target:self, action:'cancelEditing')
-      @playerController.navigationItem.leftBarButtonItem = cancel
+      @playerController.navigationItem.rightBarButtonItem = UIBarButtonItemDone.withTarget(self, action:'doneEditing')
+      @playerController.navigationItem.leftBarButtonItem = UIBarButtonItemCancel.withTarget(self, action:'cancelEditing')
       navigation
     end
     

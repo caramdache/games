@@ -15,7 +15,7 @@ class GamesController < UITableViewController
     self.title = 'Games'
     
     navigationItem.leftBarButtonItem = editButtonItem
-    navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target:self, action:'addGame')
+    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addGame')
 
   	self.contentSizeForViewInPopover = CGSizeMake(310.0, view.rowHeight*10)
    end

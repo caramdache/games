@@ -34,19 +34,19 @@
 			<key>filename</key>
 			<string>app/game.rb</string>
 			<key>lastUsed</key>
-			<date>2012-06-29T11:00:46Z</date>
+			<date>2012-07-07T22:13:22Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>app/player.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-06T14:53:02Z</date>
+			<date>2012-07-07T22:06:12Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>app/games_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-06T22:17:36Z</date>
+			<date>2012-07-07T22:13:22Z</date>
 			<key>selected</key>
 			<true/>
 		</dict>
@@ -54,7 +54,7 @@
 			<key>filename</key>
 			<string>app/game_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-06T14:53:43Z</date>
+			<date>2012-07-07T21:55:57Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -94,7 +94,7 @@
 					<key>filename</key>
 					<string>app/lib/NSManagedObject_extensions.rb</string>
 					<key>lastUsed</key>
-					<date>2012-07-06T21:03:03Z</date>
+					<date>2012-07-07T22:12:01Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -153,9 +153,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>205</integer>
+				<integer>21</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -167,9 +167,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>26</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>45</integer>
+				<integer>5</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -181,39 +181,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>50</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>41</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>51</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>50</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
+			<integer>30</integer>
 		</dict>
 		<key>app/player.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>20</integer>
+				<integer>68</integer>
 				<key>line</key>
-				<integer>5</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -231,6 +215,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{151, 4}, {988, 874}}</string>
+	<string>{{337, 4}, {1090, 874}}</string>
 </dict>
 </plist>
