@@ -10,7 +10,7 @@ class GameController < UITableViewController
     
     navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addPlayer')
 
-    @playerController ||= PlayerController.alloc.initWithStyle(UITableViewStyleGrouped)
+    @playerController ||= UITableViewControllerForNSManagedObject.alloc.initWithStyle(UITableViewStyleGrouped)
     @navPlayerController ||= UINavigationControllerDoneCancel.withRootViewController(@playerController, target:self, done:'doneEditing', cancel:'cancelEditing')
     
     Player.reset
@@ -45,36 +45,36 @@ class GameController < UITableViewController
     Player.add do |player|
       player.name = "John#{rand(100)}"
       player.game = game
-      @playerController.player = player
+      @playerController.object = player
       @playerController.is_update = false
     end
     navigationController.presentModalViewController(@navPlayerController, animated:true)
   end
   
   def editPlayer(player)
-    @playerController.player = player
+    @playerController.object = player
     @playerController.is_update = true
     navigationController.presentModalViewController(@navPlayerController, animated:true)
   end
   
   def deleteEditing
     # Remove the player, the user selected 'Remove this player'
-    @playerController.player.remove
+    @playerController.object.remove
     @playerController.dismissModalViewControllerAnimated(true)
     view.reloadData
   end
     
   def cancelEditing
     # Remove the player, the user selected 'Cancel'
-    @playerController.player.remove unless @playerController.is_update
+    @playerController.object.remove unless @playerController.is_update
     @playerController.dismissModalViewControllerAnimated(true)
     view.reloadData
   end
   
   def doneEditing
     # Save the player, the user selected 'Done'
-    @playerController.player.name = @playerController.text
-    @playerController.player.update
+    @playerController.updateObject
+    @playerController.object.update
     @playerController.dismissModalViewControllerAnimated(true)
     view.reloadData
   end
