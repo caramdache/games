@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/game_controller.rb</string>
+	<string>app/player.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -40,7 +40,9 @@
 			<key>filename</key>
 			<string>app/player.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-07T22:06:12Z</date>
+			<date>2012-07-08T11:57:06Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -52,13 +54,13 @@
 			<key>filename</key>
 			<string>app/game_controller.rb</string>
 			<key>lastUsed</key>
-			<date>2012-07-07T18:02:47Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2012-07-08T11:56:41Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>app/player_controller.rb</string>
+			<key>lastUsed</key>
+			<date>2012-07-08T11:57:06Z</date>
 		</dict>
 		<dict>
 			<key>children</key>
@@ -167,9 +169,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>30</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>47</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -195,9 +197,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>68</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>21</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/player_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>122</integer>
+				<key>line</key>
+				<integer>16</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -209,12 +225,13 @@
 	<array>
 		<string>app/game.rb</string>
 		<string>app/player.rb</string>
+		<string>app/player_controller.rb</string>
 		<string>app/games_controller.rb</string>
 		<string>app/game_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{337, 4}, {1090, 874}}</string>
+	<string>{{749, 4}, {870, 874}}</string>
 </dict>
 </plist>

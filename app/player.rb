@@ -5,7 +5,8 @@ class Player < NSManagedObject
 
   @attributes = [
     {:name => 'name', :type => NSStringAttributeType, :default => ''},
-    {:name => 'single', :type => NSBooleanAttributeType, :optional => true}
+    {:name => 'single', :type => NSBooleanAttributeType, :optional => true},
+    {:name => 'note', :type => NSStringAttributeType, :optional => true}
   ]
 
   @relationships = [
@@ -13,11 +14,7 @@ class Player < NSManagedObject
   ]
   
   @sections = [
-    [nil, ['Name', 'name', :text]],
-    ['Details', ['Single', 'single', :tick,]]
+    [nil, ['Name', 'name', :text, 'Single', 'single', :tick,]],
+    ['Note', ['Note', 'note', :longtext]]
   ]
-  
-  def self.sections
-    @sections
-  end
 end
