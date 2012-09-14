@@ -3,6 +3,7 @@ require 'motion/project'
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
+  app.sdk_version = "6.0"
   app.name = 'Games'
   app.frameworks += ['CoreData']
   app.device_family = [:iphone, :ipad]

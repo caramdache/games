@@ -2,6 +2,8 @@ class Store
   DB = 'store.sqlite'
   ManagedObjectClasses = [Game, Player]
   
+  # NO NEED TO CHANGE ANYTHING BELOW THIS LINE
+  
   def self.shared
     # Our store is a singleton object.
     @shared ||= Store.new
