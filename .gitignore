@@ -4,7 +4,9 @@ build-iPhoneSimulator
 build-iPadSimulator
 *.bridgesupport
 *.a
+*.m.o
 .DS_Store
 resources/*.nib
 resources/*.momd
 resources/*.storyboardc
+
