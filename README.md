@@ -15,20 +15,37 @@ This sample demonstrate how to use CoreData in RubyMotion without using XCode an
 Creating a Game class
 =======================
 
-A Game is identified by a name, occurs within a given year and has a unique timestamp. All attributes are mandatory, not transient and not indexed:
+A Game is identified by a name, occurs within a given year and has a timestamp. A game also has several players:
+
+	class Game < NSManagedObject
+	
+	  @attributes = [
+		{:name => 'name',      :type => NSStringAttributeType},
+		{:name => 'timestamp', :type => NSDateAttributeType},
+		{:name => 'year',      :type => NSInteger16AttributeType},
+	  ]
+	  
+	  @relationships = [
+		{:name => 'players', :destination => 'Player', :inverse => 'game'},
+	  ]
+
+In addition, games are grouped by year, sorted by timestamp and searched by name:
 
 	class Game < NSManagedObject
 	  @sortKeys = ['timestamp']
 	  @sectionKey = 'year'
 	  @searchKey = 'name'
-	
+
+Options are available if you wish to provide defaults for attributes, or if attributes are not optional, transient or indexed:
+
+	class Game < NSManagedObject
 	  @attributes = [
 		{:name => 'name', :type => NSStringAttributeType, :default => '', :optional => false, :transient => false, :indexed => false},
 		{:name => 'timestamp', :type => NSDateAttributeType, :default => nil, :optional => false, :transient => false, :indexed => false},
 		{:name => 'year', :type => NSInteger16AttributeType, :default => 0, :optional => false, :transient => false, :indexed => false},
 	  ]
 
-A Game has many players:
+The same holds for relationships:
 
 	class Game < NSManagedObject
 	  @relationships = [
@@ -70,6 +87,12 @@ Here's how to access the section name, the number of objects in the section and 
 	Game.controller.sections[section].name
 	Game.controller.sections[section].numberOfObjects
 	Game.controller.objectAtIndexPath(indexPath).name
+
+Or it you want to use the search controller instead:
+
+	Game.searchController('name1').sections[section].name
+	Game.searchController('name1').sections[section].numberOfObjects
+	Game.searchController('name1').objectAtIndexPath(indexPath).name
 
 Editing a Game
 ==============
