@@ -106,7 +106,7 @@ A Game can then easily be output in JSON:
 
 	game.to_json
 
-A Game can as easily be from a JSON string:
+A Game can be easily created from a JSON string:
 
     json = '{
         "timestamp": "5/11/2012",
