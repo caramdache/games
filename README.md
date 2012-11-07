@@ -51,13 +51,6 @@ The same holds for relationships:
 	  @relationships = [
 		{:name => 'players', :destination => 'Player', :inverse => 'game', :json => 'players', :optional => true, :transient => false, :indexed => false, :ordered => true, :min => 0, :max => NSIntegerMax, :del => NSCascadeDeleteRule},
 	  ]
-
-In addition, a Game is indexed by year (for example in a table view), is sorted by timestamp and searching is performed by name :
-	
-	class Game < NSManagedObject
-	  @sortKeys = ['timestamp']
-	  @sectionKey = 'year'
-	  @searchKey = 'name'
 	
 Creating a Store
 =================
