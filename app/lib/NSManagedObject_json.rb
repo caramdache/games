@@ -27,6 +27,10 @@ class NSManagedObject
     NSString.alloc.initWithData(data, encoding:NSUTF8StringEncoding)
   end
 
+  def to_json_raw
+    _to_json
+  end
+
   
   private
 
@@ -93,7 +97,12 @@ class NSManagedObject
   end
 
   def to_json_attr(attr)
-    self.valueForKey(attr.jsonKeypath)
+    json = self.valueForKey(attr.jsonKeypath)
+    if json.kind_of?(Time) then
+      json.to_s
+    else
+      json
+    end
   end
   
   def to_json_rel(rel)
