@@ -4,7 +4,7 @@ class NSFetchRequest
     request = self.alloc.init
     request.entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext:context)
     
-    request.predicate = NSPredicate.predicateWithFormat("#{searchKey} contains[cd] %@", argumentArray:[searchString]) if searchKey
+    request.predicate = NSPredicate.predicateWithFormat("#{searchKey} contains[cd] %@", argumentArray:[searchString]) if searchKey and searchString
     
     request.sortDescriptors = sortKeys.collect { |sortKey|
       NSSortDescriptor.alloc.initWithKey(sortKey, ascending:aBoolean)
