@@ -1,5 +1,6 @@
 class Player < NSManagedObject
   @sortKeys = ['name']
+  @sortAscending = true
   @sectionKey = nil
   @searchKey = 'name'
 

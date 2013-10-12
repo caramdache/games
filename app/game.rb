@@ -1,5 +1,6 @@
 class Game < NSManagedObject
   @sortKeys = ['timestamp']
+  @sortAscending = true
   @sectionKey = 'year'
   @searchKey = 'name'
 
