@@ -35,4 +35,28 @@ class NSFetchRequest
     
     controller
   end
+
+  def self.fetchPropertiesForEntityForName(entityName, withExpressionKeys:expressionKeys, inManagedObjectContext:context)
+    request = self.alloc.init
+    request.entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext:context)
+    request.resultType = NSDictionaryResultType
+
+    request.propertiesToFetch = expressionKeys.each.map do |name, expression|
+      func, property, type = expression
+      NSExpressionDescription.alloc.init.tap do |e|
+        e.name = name
+        e.expression = NSExpression.expressionForFunction(func, arguments:[NSExpression.expressionForKeyPath(property)])
+        e.expressionResultType = type
+        e
+      end
+    end
+
+    error_ptr = Pointer.new(:object)
+    data = context.executeFetchRequest(request, error:error_ptr)
+    if data == nil
+      raise "Error when fetching data: #{error_ptr[0].description}"
+    end
+
+    data.lastObject
+  end
 end

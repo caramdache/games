@@ -1,7 +1,16 @@
 class UIView
   def firstResponder
-    return self if isFirstResponder
-    subviews.each {|s| v = s.firstResponder; return v if v}
+    if isFirstResponder then
+      return self
+    end
+
+    subviews.each do |subview|
+      responder = subview.firstResponder
+      if responder then
+        return responder
+      end
+    end
+    
     nil
   end
 end

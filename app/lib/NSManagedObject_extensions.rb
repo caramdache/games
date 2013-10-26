@@ -5,17 +5,17 @@ class NSManagedObject
 
   def self.objects
     # Use if you do not need any section in your table view
-    @objects ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSortKeys:@sortKeys, ascending:false, inManagedObjectContext:Store.shared.context)
+    @objects ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSortKeys:@sortKeys, ascending:@sortAscending, inManagedObjectContext:Store.shared.context)
   end
 
   def self.controller
     # Use if you require sections in your table view
-    @controller ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSectionKey:@sectionKey, withSortKeys:@sortKeys, ascending:false, withsearchKey:nil, withSearchString:nil, inManagedObjectContext:Store.shared.context)
+    @controller ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSectionKey:@sectionKey, withSortKeys:@sortKeys, ascending:@sortAscending, withsearchKey:nil, withSearchString:nil, inManagedObjectContext:Store.shared.context)
   end
   
   def self.searchController(searchString)
     # Use if you have a search bar in your table view
-    @searchController ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSectionKey:@sectionKey, withSortKeys:@sortKeys, ascending:false, withsearchKey:@searchKey, withSearchString:searchString, inManagedObjectContext:Store.shared.context)
+    @searchController ||= NSFetchRequest.fetchObjectsForEntityForName(name, withSectionKey:@sectionKey, withSortKeys:@sortKeys, ascending:@sortAscending, withsearchKey:@searchKey, withSearchString:searchString, inManagedObjectContext:Store.shared.context)
   end
   
   def self.reset

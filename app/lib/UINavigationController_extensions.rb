@@ -3,6 +3,7 @@ class UINavigationControllerDoneCancel < UINavigationController
     navigation = UINavigationController.alloc.initWithRootViewController(controller)
     controller.navigationItem.rightBarButtonItem  = UIBarButtonItemDone.withTarget(target, action:done)
     controller.navigationItem.leftBarButtonItem = UIBarButtonItemCancel.withTarget(target, action:cancel)
+    navigation.modalPresentationStyle = UIModalPresentationPageSheet #UIModalPresentationFormSheet
     navigation
   end
 end

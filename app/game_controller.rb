@@ -2,23 +2,19 @@ class GameController < UITableViewController
   attr_accessor :game, :popoverViewController
 
   def viewDidLoad
-    view.dataSource = view.delegate = self
-  end
-
-  def viewWillAppear(animated)
     self.title = 'Game'
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addPlayer')
 
     @playerController ||= UITableViewControllerForNSManagedObject.alloc.initWithStyle(UITableViewStyleGrouped)
     @navPlayerController ||= UINavigationControllerDoneCancel.withRootViewController(@playerController, target:self, done:'doneEditing', cancel:'cancelEditing')
     
-    Player.reset
-    view.reloadData
+    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addPlayer')
+
+    view.dataSource = view.delegate = self
   end
 
-  def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
-    interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown
+  def viewWillAppear(animated)    
+    Player.reset
+    self.tableView.reloadData
   end
   
   def splitViewController(svc, willHideViewController:vc, withBarButtonItem:barButtonItem, forPopoverController:pc)
@@ -42,18 +38,17 @@ class GameController < UITableViewController
   end
 
   def addPlayer
-    Player.add do |player|
+    player = Player.add do |player|
       player.name = "John#{rand(100)}"
       player.game = game
-      @playerController.object = player
-      @playerController.is_update = false
     end
-    navigationController.presentModalViewController(@navPlayerController, animated:true)
+    editPlayer(player, false)
   end
   
-  def editPlayer(player)
+  def editPlayer(player, is_update=true)
     @playerController.object = player
-    @playerController.is_update = true
+    @playerController.is_update = is_update
+    self.tableView.reloadData
     navigationController.presentModalViewController(@navPlayerController, animated:true)
   end
   
@@ -61,22 +56,23 @@ class GameController < UITableViewController
     # Remove the player, the user selected 'Remove this player'
     @playerController.object.remove
     @playerController.dismissModalViewControllerAnimated(true)
-    view.reloadData
+    self.tableView.reloadData
   end
     
   def cancelEditing
     # Remove the player, the user selected 'Cancel'
     @playerController.object.remove unless @playerController.is_update
     @playerController.dismissModalViewControllerAnimated(true)
-    view.reloadData
+    self.tableView.reloadData
   end
   
   def doneEditing
     # Save the player, the user selected 'Done'
-    @playerController.updateObject
-    @playerController.object.update
-    @playerController.dismissModalViewControllerAnimated(true)
-    view.reloadData
+    if @playerController.validUpdate? then
+      @playerController.updateObject
+      @playerController.dismissModalViewControllerAnimated(true)
+      self.tableView.reloadData
+    end
   end
 
   def numberOfSectionsInTableView(tableView)
@@ -84,9 +80,7 @@ class GameController < UITableViewController
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
-    return 0 if game == nil
-    
-    game.players.count
+    if game != nil then game.players.count else 0 end
   end
 
   CellID = 'CellIdentifier'

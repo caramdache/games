@@ -2,26 +2,19 @@ class GamesController < UITableViewController
   attr_accessor :delegate
 
   def viewDidLoad
-    view.dataSource = view.delegate = self
+    self.title = 'Games'
+    navigationItem.leftBarButtonItem = editButtonItem
+    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addGame')
 
     @searchBar ||= UISearchBar.alloc.initWithFrame(CGRectMake(0.0, 0.0, self.view.bounds.size.width, 44.0))
     @searchDisplayController ||= UISearchDisplayController.alloc.initWithSearchBar(@searchBar, contentsController:self).tap do |sc|
       sc.delegate = sc.searchResultsDataSource = sc.searchResultsDelegate = self
     end
     tableView.tableHeaderView = @searchBar
-  end
-
-  def viewWillAppear(animated)
-    self.title = 'Games'
     
-    navigationItem.leftBarButtonItem = editButtonItem
-    navigationItem.rightBarButtonItem = UIBarButtonItemAdd.withTarget(self, action:'addGame')
+    self.contentSizeForViewInPopover = CGSizeMake(310.0, view.rowHeight*10)
 
-  	self.contentSizeForViewInPopover = CGSizeMake(310.0, view.rowHeight*10)
-   end
-  
-  def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
-    interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown
+    view.dataSource = view.delegate = self
   end
 
   def addGame
@@ -35,7 +28,7 @@ class GamesController < UITableViewController
     Game.add do |game|
       game.from_json(json)
     end
-    view.reloadData
+    self.tableView.reloadData
   end
 
   def searchDisplayController(controller, shouldReloadTableForSearchString:searchString)

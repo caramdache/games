@@ -6,6 +6,7 @@ build-iPadSimulator
 *.a
 *.m.o
 .DS_Store
+games.sublime*
 resources/*.nib
 resources/*.momd
 resources/*.storyboardc

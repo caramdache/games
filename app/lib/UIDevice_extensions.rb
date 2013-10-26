@@ -4,6 +4,8 @@ class UIDevice
   end
   
   def self.portrait?
-    currentDevice.orientation == UIDeviceOrientationPortrait
+    currentDevice.orientation == UIDeviceOrientationPortrait or
+    currentDevice.orientation == UIDeviceOrientationPortraitUpsideDown or
+    currentDevice.orientation == UIDeviceOrientationUnknown # for the simulator on startup
   end
 end

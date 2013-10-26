@@ -51,7 +51,7 @@ class NSManagedObject
     if value = json[attr.jsonKeypath] then
       if value.kind_of?(Array) then
         NSLog("attr[] #{attr.name}...")
-        self.setValue(value.join.strip, forKey:attr.name)
+        self.setValue(value.join("\n").strip, forKey:attr.name)
       else
         NSLog("attr #{attr.name}...")
         value = case attr.attributeType
@@ -100,6 +100,9 @@ class NSManagedObject
     json = self.valueForKey(attr.jsonKeypath)
     if json.kind_of?(Time) then
       json.to_s
+    elsif json.kind_of?(String) then
+      array = json.split(/\n/)
+      if array.size >= 2 then array else json end
     else
       json
     end

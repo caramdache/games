@@ -7,11 +7,7 @@ class PlayerController < UITableViewController
   
   def viewDidLoad
     super # get keyboard notifications
-    view.dataSource = view.delegate = self
-  end
 
-  CellID = 'CellIdentifier'
-  def viewWillAppear(animated)
     self.title = 'Player'
     
     @cell ||= UITableViewTextFieldCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CellID).tap do |c|
@@ -24,12 +20,8 @@ class PlayerController < UITableViewController
       c
     end
     @cell.textField.text = player.name
-  
-    setEditing(true, animated:true)
-  end
 
-  def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
-    interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown
+    view.dataSource = view.delegate = self
   end
 
   def tableView(tableView, numberOfRowsInSection:section)

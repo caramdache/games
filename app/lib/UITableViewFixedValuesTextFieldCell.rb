@@ -1,4 +1,6 @@
-class UITableViewTextFieldCell < UITableViewCell
+class UITableViewFixedValuesTextFieldCell < UITableViewCell
+  attr_accessor :values
+
   def textField
     @textField
   end
@@ -17,18 +19,11 @@ class UITableViewTextFieldCell < UITableViewCell
   
   def initWithStyle(style, reuseIdentifier:reuseIdentifier)
     if super then
-      @textField = UITextField.alloc.initWithFrame(self.bounds).tap do |t|
+      @textField = UILabel.alloc.initWithFrame(self.bounds).tap do |t|
         t.adjustsFontSizeToFitWidth = true
         t.textColor = UIColor.blackColor
         t.backgroundColor = UIColor.clearColor
-        t.autocorrectionType = UITextAutocorrectionTypeNo
-        t.autocapitalizationType = UITextAutocapitalizationTypeNone
         t.textAlignment = NSTextAlignmentRight
-        t.clearButtonMode = UITextFieldViewModeNever
-        t.clearsOnBeginEditing = true
-        t.enabled = true
-        t.returnKeyType = UIReturnKeyDone
-        t.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter
         t
       end
       addSubview(@textField)
