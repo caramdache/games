@@ -14,6 +14,7 @@ class GameController < UITableViewController
 
   def viewWillAppear(animated)    
     Player.reset
+    navigationItem.rightBarButtonItem.enabled = (game != nil)
     self.tableView.reloadData
   end
   
@@ -30,10 +31,14 @@ class GameController < UITableViewController
   
   def openGame(game)
     Player.reset
-    
     self.game = game
-    self.title = game.name
+    
+    if game != nil then
+      self.title = game.name
+    end
+
     self.tableView.reloadData
+    self.navigationItem.rightBarButtonItem.enabled = (game != nil)
     self.popoverViewController.dismissPopoverAnimated(true) unless self.popoverViewController == nil
   end
 

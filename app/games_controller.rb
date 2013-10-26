@@ -65,12 +65,16 @@ class GamesController < UITableViewController
 
   def tableView(tableView, commitEditingStyle:editingStyle, forRowAtIndexPath:indexPath)
     self.fetchControllerForTableView(tableView).objectAtIndexPath(indexPath).remove
+
     tableView.updates do
       if tableView.numberOfRowsInSection(indexPath.section) == 1
         tableView.deleteSections(NSIndexSet.indexSetWithIndex(indexPath.section), withRowAnimation:UITableViewRowAnimationFade)
       end
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationFade)
     end
+ 
+    self.tableView.reloadData
+    @delegate.openGame(nil)
   end
   
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
