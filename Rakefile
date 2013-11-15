@@ -13,15 +13,6 @@ Motion::Project::App.setup do |app|
   
   app.vendor_project('vendor/ISO-8601-parser', :static)
 
-  app.development do
-    app.codesign_certificate = 'iPhone Developer: Jean-Jacques Moreau (RBGZ7JHT2R)'
-    app.provisioning_profile = '../profiles/Bronze_Development_Profile.mobileprovision'
-  end
-  app.release do
-    app.codesign_certificate = 'iPhone Distribution: Jean-Jacques Moreau (FZ9S7UP4WE)'
-    app.provisioning_profile = '../profiles/Bronze_Adhoc_Provisioning_Profile.mobileprovision'
-  end
-
   app.seed_id = 'XXXX'
 
   app.entitlements['keychain-access-groups']                              = [%(#{app.seed_id}.#{app.identifier})]  # keys needed by applications which are sharing keychain data

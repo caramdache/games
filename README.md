@@ -1,5 +1,7 @@
-CoreData relationship sample
-=============================
+CoreData relationship sample (w/ preliminary iCloud support)
+============================================================
+
+NOTE: Preliminary iCloud support has just been added.
 
 This sample demonstrate how to use CoreData in RubyMotion without using XCode and XCode data models:
 
